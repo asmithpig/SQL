@@ -72,10 +72,10 @@ SELECT c.Name AS Country, s.Name AS Province
 FROM Person.CountryRegion c JOIN Person.StateProvince s ON c.CountryRegionCode = s.CountryRegionCode
 WHERE c.Name IN ('Germany', 'Canada')
 
--- 14.  List all Products that has been sold at least once in last 25 years.
+-- 14.  List all Products that has been sold at least once in last 26 years.
 SELECT DISTINCT p.ProductName
 FROM Orders o LEFT JOIN [Order Details] od ON o.OrderID = od.OrderID LEFT JOIN Products p ON od.ProductID = p.ProductID
-WHERE DATEDIFF(year, o.OrderDate, GETDATE()) <= 25
+WHERE DATEDIFF(year, o.OrderDate, GETDATE()) <= 26
 
 -- 15. List top 5 locations (Zip Code) where the products sold most.
 SELECT TOP 5 o.ShipPostalCode, SUM(od.Quantity) AS TotalSold
@@ -84,10 +84,10 @@ WHERE o.ShipPostalCode IS NOT NULL
 GROUP BY o.ShipPostalCode
 ORDER BY TotalSold DESC
 
--- 16.  List top 5 locations (Zip Code) where the products sold most in last 25 years.
+-- 16.  List top 5 locations (Zip Code) where the products sold most in last 26 years.
 SELECT TOP 5 o.ShipPostalCode, SUM(od.Quantity) AS TotalSold
 FROM Orders o LEFT JOIN [Order Details] od ON o.OrderID = od.OrderID
-WHERE o.ShipPostalCode IS NOT NULL AND DATEDIFF(year, o.OrderDate, GETDATE()) <= 25
+WHERE o.ShipPostalCode IS NOT NULL AND DATEDIFF(year, o.OrderDate, GETDATE()) <= 26
 GROUP BY o.ShipPostalCode
 ORDER BY TotalSold DESC
 
