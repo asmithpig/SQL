@@ -41,15 +41,26 @@ GROUP BY c.City
 
 -- 5. List all Customer Cities that have at least two customers.
 -- a. Use union
-SELECT c1.City
-FROM Customers c1, Customers c2
-WHERE c1.City = c2.City AND c1.CustomerID < c2.CustomerID
+SELECT City FROM Customers
+EXCEPT
+SELECT City FROM customers
+GROUP BY City
+HAVING COUNT(*)=1
 UNION
-SELECT c1.City
-FROM Customers c1, Customers c2
-WHERE c1.City = c2.City AND c1.CustomerID < c2.CustomerID
+SELECT City FROM Customers
+GROUP BY City
+HAVING COUNT(*)=0
 
 -- b. Use sub-query and no union
+SELECT DISTINCT c1.City
+FROM Customers c1 
+WHERE c1.City NOT IN (
+    SELECT c2.City
+    FROM Customers c2
+    GROUP BY c2.City
+    HAVING COUNT(c2.CustomerID) < 2
+)
+-- or 
 SELECT DISTINCT c1.City
 FROM Customers c1 
 WHERE c1.City IN (
