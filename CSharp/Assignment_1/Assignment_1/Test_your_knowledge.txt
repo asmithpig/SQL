@@ -1,0 +1,100 @@
+Understanding Data Types
+Test your knowledge
+1. What type would you choose for the following “numbers”?
+- A person’s telephone number
+String
+
+- A person’s height
+float 
+(eg. float heightInCentimeters = 175.5f)
+
+- A person’s age
+ushort
+
+- A person’s gender (Male, Female, Prefer Not To Answer)
+enum 
+(eg. enum Gender { Male, Female, PreferNotToAnswer })
+
+- A person’s salary
+decimal
+(eg. decimal salary = 50000.50m)
+
+- A book’s ISBN
+String
+
+- A book’s price
+decimal
+
+- A book’s shipping weight
+float
+(eg. float shippingWeightInKilograms = 1.5f)
+
+- A country’s population
+ulong
+
+- The number of stars in the universe
+BigInteger
+(eg. System.Numerics.BigInteger numberOfStars = System.Numerics.BigInteger.Parse("1000000000000000000000000000000"))
+or String
+or decimal (since so far it is estimated to be 10^22 stars; we can Decimal.truncate(d))
+
+- The number of employees in each of the small or medium businesses in the United Kingdom (up to about 50,000 employees per business)
+ushort
+
+2. What are the difference between value type and reference type variables? What is boxing and unboxing?
+- 1) Value type will directly hold the value, while reference type will hold the memory address for this value.
+- 2) Value types are stored in the stack memory and reference types are stored int the heap memory. 
+- 3) Value type will not be collected by garbage collector but reference type will be collected by garabage collector. 
+- 4) Value type can be created by struct or enum while reference type can be created by class, interface, delegate or array. 
+- 5) Value type can not accept any null values while reference type can accept null values. 
+Boxing is to convert a value type into an object or interface (a reference type), The value is placed in a new object on the heap, and a reference to that object is returned.
+Unboxing is the reverse process of doing so. It converts a previously boxed value back to its original value type. It involves extracting the value from the boxed object.
+
+3. What is meant by the terms managed resource and unmanaged resource in .NET
+Managed resources are those that are under the control of the .NET Common Language Runtime (CLR).
+Unmanaged resources typically mean native resources that are created and lifetime managed outside the CLR.
+
+4. Whats the purpose of Garbage Collector in .NET?
+The garbage collector is an automatic memory manager that manages the allocation and release of memory for an application.
+It allocates objects on managed heap efficiently and provides memory safety.
+For developers working with managed code, this means that you don't have to write code to perform memory management tasks. 
+Automatic memory management can eliminate common problems, such as forgetting to free an object and causing a memory leak or attempting to access memory for an object that's already been freed.
+
+Controlling Flow and Converting Types
+Test your Knowledge
+1. What happens when you divide an int variable by 0?
+Throw a runtime exception, specifically System.DivideByZeroException.
+Error CS0020 : Division by constant zero
+
+2. What happens when you divide a double variable by 0?
+A special value called "Infinity". No exception is thrown.
+
+3. What happens when you overflow an int variable, that is, set it to a value beyond its range?
+When you want to assign a large value to an int variable (int a = 10000000000), the error message is "Constant value 'xxx' cannot be converted to a int".
+When you want to overflow an int variable during calculation (int a = 1000000000; a *= 3; a = -1294967296), results in a value wrapping around to the opposite end of the range, due to two's complement representation.
+
+4. What is the difference between x = y++; and x = ++y;?
+x = y++; assigns the current value of y to x and then increments y.
+x = ++y; increments y first and then assigns the new value of y to x.
+
+5. What is the difference between break, continue, and return when used inside a loop statement?
+break: terminates the loop and continues with the next statement after the loop.
+continue: skips the rest of the loop body and moves to the next iteration.
+return: ends the loop, exits the method and returns to the caller.
+
+6. What are the three parts of a for statement and which of them are required?
+initialization, condition, and iterator update/advancement
+none of them are required
+
+7. What is the difference between the = and == operators?
+= is the assignment operator, used to assign a value to a variable.
+== is the equality operator, used to compare two values for equality.
+
+8. Does the following statement compile? for ( ; true; ) ;
+Yes, the statement compiles. It represents an infinite loop.
+
+9. What does the underscore _ represent in a switch expression?
+The underscore _ character replaces the default keyword to signify that it should match anything if reached.
+
+10. What interface must an object implement to be enumerated over by using the foreach statement?
+The IEnumerable interface, IEnumerable<T>
