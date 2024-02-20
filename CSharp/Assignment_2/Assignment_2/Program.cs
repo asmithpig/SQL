@@ -35,7 +35,7 @@ Console.WriteLine();
  */
 
 // 2. Write a simple program that lets the user manage a list of elements. It can be a grocery list, "to do" list, etc. Refer to Looping Based on a Logical Expression if necessary to see how to implement an infinite loop. Each time through the loop, ask the user to perform an operation, and then show the current contents of their list. The operations available should be Add, Remove, and Clear. The syntax should be as follows:
-// Helper.ManageElements();
+Helper.ManageElements();
 
 // 3. Write a method that calculates all prime numbers in given range and returns them as array of integers
 int[] primes = Helper.FindPrimesInRange(1, 6000);
@@ -88,3 +88,64 @@ Console.WriteLine($"longest Sequence is: {string.Join(" ", longestSequence4)}");
 // 7. Write a program that finds the most frequent number in a given sequence of numbers. In case of multiple numbers with the same maximal frequency, print the leftmost of them
 Helper.FindMostFrequentNumber(new int[]{ 4, 1, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9, 3 });
 Helper.FindMostFrequentNumber(new int[]{ 2, 7, 7, 0, 7, 2, 2, 0, 10, 10, 10 });
+/*
+ * The number 4 is the most frequent (occurs 5 times)
+   The numbers 2, 7, 10 have the same maximal frequency (each occurs 3 times). The leftmost of them is 2.
+ */
+ 
+//
+//  Practice Strings
+//
+// 1. Write a program that reads a string from the console, reverses its letters and prints the result back at the console.
+// Write in two ways
+// 1) Convert the string to char array, reverse it, then convert it to string again
+Helper.ReverseString1();
+// 2) Print the letters of the string in back direction (from the last to the first) in a for-loop
+Helper.ReverseString2();
+/*
+ * Enter a string to reverse (method 1):
+   sample    
+       elpmas
+   Enter s string to reverse (method 2):
+   24tvcoi92    
+       29iocvt42
+ */
+ 
+// 2. Write a program that reverses the words in a given sentence without changing the punctuation and spaces
+// Use the following separators between the words: . , : ; = ( ) & [ ] " ' \ / ! ? (space). All other characters are considered part of words, e.g. C++, a+b, and a77 are considered valid words.
+// The sentences always start by word and end by separator.
+Helper.ReverseSentence("C# is not C++, and PHP is not Delphi!");
+Helper.ReverseSentence("The quick brown fox jumps over the lazy dog /Yes! Really!!!/.");
+/*
+ * Delphi not is PHP, and C++ not is C#!
+   Really Yes dog lazy the over jumps fox brown /quick! The!!!/.
+ */
+ 
+// 3. Write a program that extracts from a given text all palindromes, e.g. “ABBA”, “lamal”, “exe” and prints them on the console on a single line, separated by comma and space.Print all unique palindromes (no duplicates), sorted
+Helper.ExtractPalindromes("Hi,exe? ABBA! Hog fully a string: ExE. Bob");
+/*
+ * a, ABBA, exe, ExE
+ */
+ 
+// 4.Write a program that parses an URL given in the following format: [protocol]://[server]/[resource]
+// The parsing extracts its parts: protocol, server and resource.
+// The [server] part is mandatory.
+// The [protocol] and [resource] parts are optional.
+Helper.ParseUrl("https://www.apple.com/iphone");
+Helper.ParseUrl("ftp://www.example.com/employee");
+Helper.ParseUrl("https://google.com");
+Helper.ParseUrl("www.apple.com");
+/*
+ * [protocol] = "https"
+   [server] = "www.apple.com"
+   [resource] = ""
+   [protocol] = "ftp"
+   [server] = "www.example.com"
+   [resource] = ""
+   [protocol] = "https"
+   [server] = "google.com"
+   [resource] = ""
+   [protocol] = ""
+   [server] = "www.apple.com"
+   [resource] = ""
+ */

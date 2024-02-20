@@ -1,3 +1,4 @@
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Assignment_2;
@@ -122,7 +123,7 @@ public static class Helper
         int maxNum = arr[0];
         foreach (int i in arr)
         {
-            freq.Add(i, freq.GetValueOrDefault(i, 0) + 1);
+            freq[i] = freq.GetValueOrDefault(i, 0) + 1;
             if (freq[i] > maxFreq)
             {
                 maxFreq = freq[i];
@@ -130,11 +131,11 @@ public static class Helper
             }
         }
         List<int> modes = new List<int>();
-        foreach (int i in arr)
+        foreach (var kv in freq)
         {
-            if (freq[i] == maxFreq)
+            if (kv.Value == maxFreq)
             {
-                modes.Add(i);
+                modes.Add(kv.Key);
             }
         }
 
@@ -146,5 +147,101 @@ public static class Helper
         {
             Console.WriteLine($"The numbers {string.Join(", ", modes)} have the same maximal frequency (each occurs {maxFreq} times). The leftmost of them is {modes.First()}.");
         }
+    }
+
+    public static void ReverseString1()
+    {
+        Console.WriteLine("Enter a string to reverse (method 1):");
+        String? input = Console.ReadLine();
+        if (String.IsNullOrEmpty(input)) return;
+        char[] arr = input.ToCharArray();
+        Array.Reverse(arr);
+        Console.WriteLine(new string(arr));
+    }
+
+    public static void ReverseString2()
+    {
+        Console.WriteLine("Enter s string to reverse (method 2):");
+        String? input = Console.ReadLine();
+        if (String.IsNullOrEmpty(input)) return;
+        for (int i = input.Length - 1; i >= 0; i--) {
+            Console.Write(input[i]);
+        }
+        Console.WriteLine();
+    }
+
+    public static void ReverseSentence(String sentence)
+    {
+        string[] words = sentence.Split(".,:;=()&[]\"'\\/!? ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+        string[] nonWords = sentence.Split(words, StringSplitOptions.None);
+        StringBuilder sb = new StringBuilder();
+        int i = 0, j = 0;
+        for (; i < nonWords.Length && j < words.Length; i++, j++)
+        {
+            sb.Append(nonWords[i]).Append(words[words.Length - 1 - j]);
+        }
+
+        while (i < nonWords.Length)
+        {
+            sb.Append(nonWords[i++]);
+        }
+
+        while (j < words.Length)
+        {
+            sb.Append(words[j++]);
+        }
+        Console.WriteLine(sb.ToString());
+    }
+
+    public static void ExtractPalindromes(String s)
+    {
+        string[] words = s.Split(".,:;=()&[]\"'\\/!? ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+        HashSet<string> set = new HashSet<string>();
+        List<string> ret = new List<string>();
+        foreach (string word in words)
+        {
+            if (IsPalindrome(word) && set.Add(word))
+            {
+                ret.Add(word);
+            }
+        }
+        ret.Sort();
+        Console.WriteLine(string.Join(", ", ret));
+    }
+
+    private static bool IsPalindrome(String s)
+    {
+        for (int i = 0, j = s.Length - 1; i < j; i++, j--)
+        {
+            if (s[i] != s[j])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void ParseUrl(String url)
+    {
+        string[] parts = url.Split(new string[] { "://", "/" }, StringSplitOptions.None);
+        string protocol = "";
+        string server = "";
+        string resource = "";
+        if (url.Contains("://"))
+        {
+            protocol = parts[0];
+            server = parts[1];
+        }
+        else
+        {
+            server = parts[0];
+            if (url.Contains("/"))
+            {
+                resource = parts[1];
+            }
+        }
+        Console.WriteLine($"[protocol] = \"{protocol}\"");
+        Console.WriteLine($"[server] = \"{server}\"");
+        Console.WriteLine($"[resource] = \"{resource}\"");
     }
 }
