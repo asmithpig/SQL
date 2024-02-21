@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using Assignment_3;
+using Assignment_3.ColorBall;
 using Assignment_3.OOP_Design;
 
 // 1. reverse Array
@@ -33,3 +34,4 @@ Instructor instructor = new Instructor("Tom", new List<string>(new string[] { "p
  3000m, new Department(), true, new DateTime(1999, 1, 1));
 Console.WriteLine(instructor.CalculateSalary());
 // 7. Try creating the two classes below, and make a simple program to work with them, as described below
+Demo.Main();
