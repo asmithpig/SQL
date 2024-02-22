@@ -47,3 +47,29 @@ Console.WriteLine($"Count: {myList.Count()}");
  */
  
 // 3. Implement a GenericRepository<T> class that implements IRepository<T> interface that will have common /CRUD/ operations so that it can work with any data source such as SQL Server, Oracle, In-Memory Data etc. Make sure you have a type constraint on T were it should be of reference type and can be of type Entity which has one property called Id. IRepository<T> should have following methods
+Entity[] entities = new Entity[10];
+for (int i = 0; i < entities.Length; i++)
+{
+    entities[i] = new Entity(i, "Tom" + i);
+}
+GenericRepository<Entity> genericRepository = new GenericRepository<Entity>();
+foreach (var entity in entities)
+{
+    genericRepository.Add(entity);
+}
+foreach (var gEntity in genericRepository.GetAll())
+{
+    Console.WriteLine($"Id: {gEntity.Id}, Name: {gEntity.Name}");
+}
+/*
+ * Id: 0, Name: Tom0
+   Id: 1, Name: Tom1
+   Id: 2, Name: Tom2
+   Id: 3, Name: Tom3
+   Id: 4, Name: Tom4
+   Id: 5, Name: Tom5
+   Id: 6, Name: Tom6
+   Id: 7, Name: Tom7
+   Id: 8, Name: Tom8
+   Id: 9, Name: Tom9
+ */
