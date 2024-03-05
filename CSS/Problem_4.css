@@ -1,0 +1,97 @@
+body {
+    font-family: Arial;
+}
+
+.headerBackground {
+    margin: 0;
+    padding: 0;
+    background-image: url("https://antra.com/wp-content/uploads/2016/10/CS-banner-without-rect.png");
+	background-size: cover;
+    background-position: bottom;
+    height: 300px;
+    text-align: right;
+    color: white;
+    padding-right: 30px;
+    padding-top: 200px;
+}
+
+#navbar {
+    list-style: none;
+    margin: 0;
+    padding: 2px;
+    background-image: linear-gradient(to bottom, rgb(238, 242, 232) 0%, rgb(216, 216, 215) 80%);
+    overflow: hidden;
+    border-radius: 0;
+    border: 1px solid white;
+}
+
+#navbar li {
+    float: left;
+    border: 1px solid white;
+}
+
+#navbar li a {
+    display: block;
+    color: grey;
+    text-align: center;
+    font-size: 24px;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#navbar li a:hover {
+    background-color: rgb(205, 202, 202);
+    color: white;
+}
+
+#navbar a.active {
+    background-image: linear-gradient(to bottom, rgb(206, 207, 203) 0%, rgb(175, 175, 173) 80%);
+    color: white;
+}
+
+footer {
+    background-image: linear-gradient(to bottom, rgb(169, 224, 74) 0%, rgb(130, 193, 31) 60%);
+    color: black;
+    padding: 50px;
+    padding-left: 200px;
+
+}
+
+footer a {
+    color: black;
+}
+
+.myContent {
+    margin: 50px;
+    padding: 20px;
+    border: 1px solid darkgrey;
+    border-radius: 10px;
+}
+
+.title {
+    color: rgb(140, 178, 45);
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.image {
+    float: left;
+    margin-right: 20px;
+    width: 200px;
+    height: 150px;
+}
+
+.product {
+    margin: 20px;
+}
+
+.news {
+    background-color: rgb(238, 238, 238);
+    margin: 50px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
