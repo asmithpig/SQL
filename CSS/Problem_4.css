@@ -62,7 +62,7 @@ footer a {
 }
 
 .myContent {
-    margin: 50px;
+    margin: 30px;
     padding: 20px;
     border: 1px solid darkgrey;
     border-radius: 10px;
@@ -76,22 +76,19 @@ footer a {
 
 .image {
     float: left;
-    margin-right: 20px;
+
     width: 200px;
     height: 150px;
 }
 
 .product {
-    margin: 20px;
+    margin: 10px;
 }
 
 .news {
     background-color: rgb(238, 238, 238);
-    margin: 50px;
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    border: 1px solid black;
-    border-radius: 20px;
+    margin: 30px;
+    padding: 20px;
+    border: 1px solid darkgrey;
+    border-radius: 10px;
 }
